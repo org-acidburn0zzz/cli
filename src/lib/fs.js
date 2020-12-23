@@ -9,6 +9,8 @@ const statAsync = promisify(fs.stat)
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 const accessAsync = promisify(fs.access)
+const mkdtempAsync = promisify(fs.mkdtempSync)
+const appendFileAsync = promisify(fs.appendFile)
 
 const readFileAsyncCatchError = async (filepath) => {
   try {
@@ -44,4 +46,6 @@ module.exports = {
   mkdirRecursiveSync,
   mkdirRecursiveAsync,
   rmdirRecursiveAsync,
+  mkdtempAsync,
+  appendFileAsync,
 }
