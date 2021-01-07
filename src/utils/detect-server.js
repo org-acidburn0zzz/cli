@@ -11,13 +11,17 @@ const inquirerAutocompletePrompt = require('inquirer-autocomplete-prompt')
 const { NETLIFYDEVLOG, NETLIFYDEVWARN } = require('./logo')
 
 const getSettingsFromFramework = (framework) => {
-  const { directory: dist } = framework.build
   const {
-    commands: [command],
-    port: frameworkPort,
-  } = framework.dev
+    build: { directory: dist },
+    dev: {
+      commands: [command],
+      port: frameworkPort,
+    },
+    name: frameworkName,
+    env,
+  } = framework
 
-  return { command, frameworkPort, dist, framework: framework.name, env: framework.env }
+  return { command, frameworkPort, dist, framework: frameworkName, env }
 }
 
 const serverSettings = async (devConfig, flags, projectDir, log) => {
