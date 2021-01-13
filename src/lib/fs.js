@@ -9,7 +9,7 @@ const statAsync = promisify(fs.stat)
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 const accessAsync = promisify(fs.access)
-const mkdtempAsync = promisify(fs.mkdtempSync)
+const mkdtempAsync = promisify(fs.mkdtemp)
 const appendFileAsync = promisify(fs.appendFile)
 
 const readFileAsyncCatchError = async (filepath) => {
